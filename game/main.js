@@ -13,7 +13,7 @@ const bullets = [];//弾
 const BULLETS_SPEED = -10;
 function tryShoot() {
     bullets.push({
-        x: player.x,
+        x: player.x+13,
         y: player.y,
         width: 5,
         height: 5,
