@@ -1,19 +1,17 @@
+import { player , initPlayer , drawPlayer} from "./player.js";
+import { spawnEnemy , enemies } from "./enemies.js";
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const player = {//自機
-    x: canvas.width / 2 - 15,
-    y: canvas.height - 60,
-    width: 30,
-    height: 30,
-    color: "#0000ff"
-};
+initPlayer(canvas);
+spawnEnemy(canvas);
 
-const bullets = [];//弾
+const bullets = [];
 const BULLETS_SPEED = -10;
 function tryShoot() {
     bullets.push({
-        x: player.x+13,
+        x: player.x + player.width / 2 - 2.5,
         y: player.y,
         width: 5,
         height: 5,
@@ -52,21 +50,12 @@ window.addEventListener("keydown",(e) => {
     }
 }
  }
-
 function draw() {
-    ctx.fillStyle = "black";//背景
+    ctx.fillStyle = "#000000ff";//背景
     ctx.fillRect(0,0,canvas.width,canvas.height);
     
-    ctx.fillStyle = player.color;//自機
-    ctx.fillRect(player.x,player.y,player.width,player.height);
-    
-    ctx.fillStyle = "white";//弾
-    for (let i =  0 ; i < bullets.length; i++) {
-        const bullet = bullets[i];
-        ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
-    }
+    drawPlayer(ctx);
 }
-
 function gameLoop() {
     update();
     draw();
