@@ -3,7 +3,7 @@ export const player = {
     y: 0,
     width: 30,
     height: 30,
-    color: "#0000ffff",
+    color: "blue",
     life: 3,
 };
 
