@@ -1,6 +1,7 @@
 export const enemies = [];
 const SIZE = 26;
-
+const enemyImage = new Image();
+enemyImage.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPEnaTjO3Bhl_nUapYh7CYQCGcvNFv0KIDbWOPhdQSg-Cz4zh1nHBfxVoTwt-sN2NdeV6sRggpFUgwxWxhILZnT0Dc2N2d3eBz-urwwzpPwdYkfN29HqzmaTAN9DCVdXWbhrz7h870_SYf/s1600/fantasy_game_character_slime.png";
 function pushEnemies(canvas) {
   const w = SIZE;
   const h = SIZE;
@@ -30,6 +31,6 @@ export function updateEnemies(canvas) {
 export function drawEnemies(ctx) {
   ctx.fillStyle = "crimson";
   for (const e of enemies) {
-    ctx.fillRect(e.x, e.y, e.width, e.height);
+    ctx.drawImage(enemyImage, e.x, e.y, e.width, e.height);
   }
 }

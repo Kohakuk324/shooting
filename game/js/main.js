@@ -18,8 +18,13 @@ function tryShoot() {
         height: 10,
         vy: BULLET_SPEED,
     })
-}
+} 
 
+function updatescore(){
+    const scoreBoard = document.getElementById("scoreBoard");
+    scoreBoard.innerText = `Score: ${player.score}`;
+    lifeBoard.innerText = `Life: ${player.life}`;
+}
 
 window.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
@@ -54,6 +59,7 @@ function update() {
     spawnEnemy(canvas);
     updateEnemies(canvas);
     handleCollisions(canvas);
+    updatescore();
 }
 
 function draw() {
